@@ -1,0 +1,46 @@
+{
+  "name": "google-appengine-socket-io",
+  "description": "Node.js socket.io simple app",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Hugo Morales",
+  "engines": {
+    "node": "10.x.x"
+  },
+  "scripts": {
+    "deploy": "gcloud app deploy",
+    "start": "node app.js",
+    "lint": "eslint",
+    "fix": "eslint --fix .",
+    "test": "repo-tools test app & mocha */*.test.js --timeout=30000 --exit",
+    "e2e-test": "samples test deploy",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.15.4",
+    "pug": "^2.0.3",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "mocha": "^6.0.0",
+    "nodemon": "^2.0.2",
+    "puppeteer": "^2.0.0"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "messages"
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}
